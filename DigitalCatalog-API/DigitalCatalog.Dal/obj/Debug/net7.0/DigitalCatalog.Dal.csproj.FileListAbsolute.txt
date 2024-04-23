@@ -1,0 +1,17 @@
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Dal.deps.json
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Dal.runtimeconfig.json
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Dal.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Dal.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Domain.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\bin\Debug\net7.0\DigitalCatalog.Domain.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.csproj.AssemblyReference.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.AssemblyInfoInputs.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.AssemblyInfo.cs
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.csproj.CopyComplete
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\refint\DigitalCatalog.Dal.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\DigitalCatalog.Dal.genruntimeconfig.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Dal\obj\Debug\net7.0\ref\DigitalCatalog.Dal.dll

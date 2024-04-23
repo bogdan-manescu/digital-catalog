@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4uBUBzbfZJ0GpR0C1inAP+w0osBV8EQGeuC1dlxYcCE=",
+  "Source": "DigitalCatalog.Api",
+  "BasePath": "_content/DigitalCatalog.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

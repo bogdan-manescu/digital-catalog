@@ -1,0 +1,15 @@
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\bin\Debug\net7.0\DigitalCatalog.Application.deps.json
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\bin\Debug\net7.0\DigitalCatalog.Application.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\bin\Debug\net7.0\DigitalCatalog.Application.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\bin\Debug\net7.0\DigitalCatalog.Domain.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\bin\Debug\net7.0\DigitalCatalog.Domain.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.csproj.AssemblyReference.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.AssemblyInfoInputs.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.AssemblyInfo.cs
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.csproj.CoreCompileInputs.cache
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.csproj.CopyComplete
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\refint\DigitalCatalog.Application.dll
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\DigitalCatalog.Application.pdb
+C:\Users\Bogdan\Desktop\digital catalog\DigitalCatalog-API\DigitalCatalog.Application\obj\Debug\net7.0\ref\DigitalCatalog.Application.dll

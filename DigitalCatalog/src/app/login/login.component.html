@@ -1,0 +1,40 @@
+<div class="center-column">
+  <mat-card class="mid-view wide warning" *ngIf="toggleWarning">
+    <mat-card-content class="center">
+      <mat-icon>error_outline</mat-icon>
+      <span>
+        Incorrect username or password. Please try again.
+      </span>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mid-view wide">
+    <mat-card-header class="center">
+      <mat-card-title style="text-align:center;">Welcome!</mat-card-title>
+      <mat-card-subtitle style="text-align:center;">Login to your account.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class=" center-column wide no-gap" [formGroup]="loginForm">
+        <mat-form-field appearance="outline" class="wide">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" placeholder="Enter your username" matInput required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="loginForm.controls['username'].hasError('required')">This field cannot be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="wide">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" placeholder="Enter your password" type="password" matInput required>
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">This field cannot be empty</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="center-column">
+      <button mat-flat-button color="primary" (click)="onLogin()" type="submit" [disabled]="isLoading">
+        {{ isLoading ? "LOADING..." : "LOGIN" }}
+      </button>
+      <!-- <p>Don't have an account?
+        <a routerLink="/register" class="action-link">Register here.</a>
+      </p> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
