@@ -10,12 +10,19 @@ using DigitalCatalog.Dal.DataContext;
 using DigitalCatalog.Dal.Repository;
 using DigitalCatalog.Domain.Interfaces.Repositories;
 using Swashbuckle.AspNetCore.Filters;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -32,8 +39,19 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.ConfigureApplicationServices();
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IScoreRepository, ScoreRepository>();
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
+builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+
+builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IScoreService, ScoreService>();
+builder.Services.AddScoped<IDocumentService, DocumentService>();
+builder.Services.AddScoped<IArticleService, ArticleService>();
+
 builder.Services.AddTransient<GlobalExceptionHandleMiddleware>();
 
 /*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

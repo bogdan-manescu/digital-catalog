@@ -1,0 +1,55 @@
+<mat-card class="padding wide" data-aos="fade-up" *ngIf="!isLoading">
+  <mat-card-title>
+    <h1>Academic Record</h1>
+  </mat-card-title>
+  <mat-card-content *ngIf="academicRecord.length > 0">
+    <h2>Credit points: {{ myCreditPoints }} / {{ totalCreditPoints }} ({{ creditPointsPercentage }}%)</h2>
+    <div style="margin-bottom: 25px;" class="center no-align">
+      <p style="font-style: italic; margin: 0;">Legend:</p>
+      <div class="center no-align">
+        <div class="center no-align no-gap">
+          <div class="legend legend-passed"></div>
+          Passed
+        </div>
+        <div class="center no-align no-gap">
+          <div class="legend legend-notPassed"></div>
+          Not passed
+        </div>
+      </div>
+    </div>
+    <table mat-table [dataSource]="academicRecord" class="mat-elevation-z5">
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef>
+          Course Name
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.course.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="teacherName">
+        <th mat-header-cell *matHeaderCellDef>
+          Teacher Name
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.course.teacher.firstName }} {{ element.course.teacher.lastName
+          }}</td>
+      </ng-container>
+      <ng-container matColumnDef="creditPoints">
+        <th mat-header-cell *matHeaderCellDef>
+          Credit Points
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.course.creditPoints }}</td>
+      </ng-container>
+      <ng-container matColumnDef="myScore">
+        <th mat-header-cell *matHeaderCellDef>
+          My Score
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.totalScore }}/100 (min. 50)</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.legend-passed]="row.totalScore >= 50"
+        [class.legend-notPassed]="row.totalScore < 50"></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-content *ngIf="academicRecord.length === 0">
+    <h2>Looks like you haven't been assigned to a course yet.</h2>
+  </mat-card-content>
+</mat-card>
+<app-loader *ngIf="isLoading"></app-loader>

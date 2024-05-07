@@ -1,0 +1,117 @@
+<div class="center-column" data-aos="fade-up">
+  <mat-card class="padding wide">
+    <form [formGroup]="myProfileForm">
+      <mat-card-title>
+        <h1>My Profile</h1>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="center no-align">
+          <div style="flex: 1;">
+            <div style="display: flex; gap: 10px;">
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>First name</mat-label>
+                <input formControlName="firstName" placeholder="Enter your first name" matInput required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="myProfileForm.controls['firstName'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Last name</mat-label>
+                <input formControlName="lastName" placeholder="Enter your last name" matInput required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="myProfileForm.controls['lastName'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>E-mail</mat-label>
+              <input formControlName="email" placeholder="Enter your e-mail" type="email" matInput required>
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="myProfileForm.controls['email'].hasError('required')">This field cannot be
+                empty</mat-error>
+              <mat-error *ngIf="myProfileForm.controls['email'].hasError('email')">Not a valid e-mail
+                address</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>Phone number</mat-label>
+              <input formControlName="phoneNumber" placeholder="Enter your phone number" type="tel" matInput required>
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="myProfileForm.controls['phoneNumber'].hasError('required')">This field cannot be
+                empty</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>Faculty</mat-label>
+              <input formControlName="faculty" placeholder="Enter your faculty" matInput required readonly>
+              <mat-icon matSuffix>location_city</mat-icon>
+              <mat-error *ngIf="myProfileForm.controls['faculty'].hasError('required')">This field cannot be
+                empty</mat-error>
+            </mat-form-field>
+            <div style="display: flex; gap: 10px;">
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Year</mat-label>
+                <input formControlName="year" placeholder="Enter your study year" matInput required readonly>
+                <mat-icon matSuffix>assignment</mat-icon>
+                <mat-error *ngIf="myProfileForm.controls['year'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Group</mat-label>
+                <input formControlName="group" placeholder="Enter your group" matInput required readonly>
+                <mat-icon matSuffix>people</mat-icon>
+                <mat-error *ngIf="myProfileForm.controls['group'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="center-column" style="flex: .25;">
+            <h2 style="margin: 0;">Profile picture</h2>
+            <img [src]="myProfileForm.controls['profilePicture'].value" class="profile-preview-img">
+            <div class="center" style=" flex: 0.5;">
+              <label for="file-upload">
+                <a mat-flat-button color="primary">
+                  <mat-icon>photo</mat-icon>
+                  Upload Photo
+                </a>
+              </label>
+              <input id="file-upload" formControlName="profilePicture" type="file"
+                (change)="handleFileInput($event.target)">
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="onSaveMyProfile()" type="submit" [disabled]="isLoading">
+          {{ isLoading ? "LOADING..." : "SAVE" }}
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <mat-card class="padding wide">
+    <form [formGroup]="loginCredentialsForm">
+      <mat-card-title>
+        <h1>Login Detalis</h1>
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="wide">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" placeholder="Enter your username" matInput required>
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="loginCredentialsForm.controls['username'].hasError('required')">This field cannot be
+            empty</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="wide">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" placeholder="Enter your password" type="password" matInput required>
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="loginCredentialsForm.controls['password'].hasError('required')">This field cannot be
+            empty</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="onSaveLoginCredentials()" type="submit" [disabled]="isLoading">
+          {{ isLoading ? "LOADING..." : "SAVE" }}
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

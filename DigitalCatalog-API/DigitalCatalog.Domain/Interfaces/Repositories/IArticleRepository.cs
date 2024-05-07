@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DigitalCatalog.Domain.Interfaces.Repositories
 {
-    public interface IAuthRepository
+    public interface IArticleRepository
     {
-        Task<User> GetUserByUsername(string username);
+        Task<IEnumerable<Article>> CreateArticle(Article article);
+        Task<IEnumerable<Article>> GetArticles();
     }
 }
-

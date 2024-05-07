@@ -1,0 +1,9 @@
+<div class="overlay wide" data-aos="fade-down" *ngIf="isCalled">
+  <div class="center">
+    <div class="overlay-inner" [ngClass]="isError ? 'overlay-error' : 'overlay-success'">
+      <div class="center padding">
+        <h2 class="overlay-title">{{ message }}</h2>
+      </div>
+    </div>
+  </div>
+</div>

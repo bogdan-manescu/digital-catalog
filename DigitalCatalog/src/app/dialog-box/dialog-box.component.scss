@@ -1,0 +1,27 @@
+.dialog-box {
+  border-radius: 8px;
+  padding: 10px;
+  // width: 600px;
+
+  h1 {
+    color: black;
+    // font-weight: 500 !important;
+    text-align: center;
+  }
+
+  // button {
+  //   width: 155px;
+  //   padding: 20px 0;
+  // }
+
+  mat-dialog-actions {
+    justify-content: center;
+    // padding: 20px 24px;
+    padding-top: 0;
+    gap: 10px;
+  }
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  border-radius: 8px !important;
+}

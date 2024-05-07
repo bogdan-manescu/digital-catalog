@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Event, GuardsCheckEnd, NavigationEnd, Router } from "@angular/router";
 import { AuthService } from "./services/auth.service";
 import User from "./models/user.model";
-
+import AOS from "aos";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -20,5 +20,7 @@ export class AppComponent implements OnInit {
       this.authService.userData.next(userData);
       this.router.navigate(["dashboard"]);
     }
+
+    AOS.init();
   }
 }

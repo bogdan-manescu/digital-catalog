@@ -1,0 +1,28 @@
+<mat-card class="padding wide" data-aos="fade-up" *ngIf="!isLoading">
+  <mat-card-title>
+    <h1>Latest News</h1>
+  </mat-card-title>
+  <mat-card-content *ngIf="articles.length >= 0">
+    <div class="center-column wide">
+      <mat-card class="article-wrapper wide" *ngFor="let article of articles">
+        <mat-card-content class="article">
+          <div class="center no-align wide">
+            <div class="wide">
+              <h2>{{ article.title }}</h2>
+              <p>{{ article.description }}</p>
+              <div class="center no-align">
+                <span>Author: {{ article.author.firstName }} {{ article.author.lastName }}</span>
+                <span>Posted on: {{ getArticleDate(article.created) }}</span>
+              </div>
+            </div>
+            <img src="../../assets/noPreview.png" class="article-img">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+  <mat-card-content *ngIf="articles.length === 0">
+    <h2>Looks like there are no articles yet.</h2>
+  </mat-card-content>
+</mat-card>
+<app-loader *ngIf="isLoading"></app-loader>

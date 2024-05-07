@@ -1,0 +1,10 @@
+.article {
+  &-wrapper {
+    border: 1px solid var(--primary);
+  }
+
+  &-img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}

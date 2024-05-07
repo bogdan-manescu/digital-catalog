@@ -21,7 +21,7 @@ export class AuthService {
     // this.userData = new Subject<User>();
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string): Observable<AuthResponseData> {
     return this.http
       .post<AuthResponseData>(`${this.baseUrl}/login`, {
         username: username,

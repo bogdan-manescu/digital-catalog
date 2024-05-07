@@ -6,10 +6,22 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #21d4fd;
   background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
   --primary: #3f51b5;
+  --error: #f44336;
+  --passed: rgb(145, 255, 145);
+  --notPassed: rgb(253, 160, 154);
+  --warn: rgb(249, 213, 122);
+}
+
+h1,
+h2,
+p,
+span {
+  font-weight: 600 !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .center {
@@ -17,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  gap: 10px;
 }
 
 .center-column {
@@ -36,8 +49,17 @@ body {
   max-width: 500px;
 }
 
+.full-height {
+  height: calc(100vh - 20px);
+}
+
 .wide {
   width: 100%;
+}
+
+.full {
+  width: 100%;
+  height: 100%;
 }
 
 mat-card-header {
@@ -75,4 +97,49 @@ mat-card-actions {
   color: var(--primary) !important;
   // font-style: italic;
   // text-decoration: none;
+}
+
+.snackbar {
+  &-success {
+    color: green;
+  }
+
+  &-error {
+    color: firebrick;
+  }
+}
+
+.no-align {
+  align-items: unset !important;
+  justify-content: flex-start !important;
+}
+
+.padding {
+  padding: 10px !important;
+}
+
+.legend {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+
+  &-passed {
+    background-color: var(--passed) !important;
+  }
+
+  &-waiting {
+    background-color: var(--warn) !important;
+  }
+
+  &-notPassed {
+    background-color: var(--notPassed) !important;
+  }
+
+  span {
+    font-style: italic;
+  }
+}
+
+th {
+  font-weight: bold !important;
 }

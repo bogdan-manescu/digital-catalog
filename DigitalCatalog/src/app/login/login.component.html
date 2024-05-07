@@ -7,13 +7,13 @@
       </span>
     </mat-card-content>
   </mat-card>
-  <mat-card class="mid-view wide">
+  <mat-card class="mid-view wide" data-aos="fade-up">
     <mat-card-header class="center">
       <mat-card-title style="text-align:center;">Welcome!</mat-card-title>
       <mat-card-subtitle style="text-align:center;">Login to your account.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <form class=" center-column wide no-gap" [formGroup]="loginForm">
+      <form class="center-column wide no-gap" [formGroup]="loginForm">
         <mat-form-field appearance="outline" class="wide">
           <mat-label>Username</mat-label>
           <input formControlName="username" placeholder="Enter your username" matInput required>

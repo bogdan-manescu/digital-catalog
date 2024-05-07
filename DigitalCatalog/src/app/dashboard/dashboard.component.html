@@ -1,6 +1,39 @@
-<div class="center-column">
-  <h1 style="color: white; font-style: italic;">WELCOME TO THE DASHBOARD!</h1>
-  <h1 style="color: white; font-style: italic;">Name: {{ userData.firstName }} {{ userData.lastName }}</h1>
-  <h1 style="color: white; font-style: italic;">Role: {{ userData.role.name }}</h1>
-  <button mat-flat-button color="warn" (click)="onLogout()">LOGOUT</button>
-</div>
+<mat-drawer-container style="height: 100%;">
+  <mat-drawer mode="side" opened class="padding">
+    <div class="center-column no-align wide" data-aos="fade-right">
+      <a routerLink="./" mat-raised-button color="primary">
+        <mat-icon>dashboard</mat-icon>
+        Overview
+      </a>
+      <a routerLink="./my-profile" mat-raised-button color="primary">
+        <mat-icon>person</mat-icon>
+        My Profile
+      </a>
+      <a routerLink="./academic-record" mat-raised-button color="primary">
+        <mat-icon> notes</mat-icon>
+        Academic Record
+      </a>
+      <a routerLink="./document-request" mat-raised-button color="primary">
+        <mat-icon>insert_drive_file</mat-icon>
+        Document Request
+      </a>
+      <a routerLink="./latest-news" mat-raised-button color="primary">
+        <mat-icon>event_available</mat-icon>
+        Latest News
+      </a>
+      <a routerLink="./forum" mat-raised-button color="primary">
+        <mat-icon>forum</mat-icon>
+        Forum
+      </a>
+      <button mat-raised-button color="warn" (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content style="background-color: whitesmoke;">
+    <div class="padding">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

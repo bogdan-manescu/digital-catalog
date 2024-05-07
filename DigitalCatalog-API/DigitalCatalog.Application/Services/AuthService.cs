@@ -18,14 +18,13 @@ namespace DigitalCatalog.Application.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly IAuthRepository _authRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        private readonly IConfiguration _configuration;
-       
+        private readonly IConfiguration _configuration;   
             
-        public AuthService(IAuthRepository authRepository, IMapper mapper, IConfiguration configuration)
+        public AuthService(IUserRepository userRepository, IMapper mapper, IConfiguration configuration)
         {
-            _authRepository = authRepository ;
+            _userRepository = userRepository;
             _mapper = mapper ;
             _configuration = configuration;
         }
@@ -33,16 +32,10 @@ namespace DigitalCatalog.Application.Services
         public async Task<ServiceResponse<GetUserDto>> Login(string username, string password)
         {
             var response = new ServiceResponse<GetUserDto>();
-            var user = await _authRepository.GetUserByUsername(username);
+            var user = await _userRepository.GetUserByUsername(username);
 
-            if(user == null)
+            if(user.Password != password)
             {
-                response.Message = "Incorrect username or password.";
-                throw new KeyNotFoundException("Incorrect username or password.");
-            }
-            else if(user.Password != password)
-            {
-                response.Message = "Incorrect username or password.";
                 throw new KeyNotFoundException("Incorrect username or password.");
             }
             else

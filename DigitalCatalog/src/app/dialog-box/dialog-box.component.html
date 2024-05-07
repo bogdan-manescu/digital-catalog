@@ -1,0 +1,14 @@
+<div class="dialog-box">
+  <mat-dialog-content>
+    <h1>{{ data.name }}</h1>
+    <!-- <p class="dialog-q">Are you sure?</p> -->
+    <!-- <div class="dialog-warning">
+      <img src="https://ausy-assets.s3.eu-central-1.amazonaws.com/pef/images/warning.png" alt="" />
+      <p><span class="dialog-label">Warning!</span> This action cannot be undone.</p>
+    </div> -->
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button color="primary" mat-raised-button mat-dialog-close>Cancel</button>
+    <button color="warn" mat-raised-button [mat-dialog-close]="true">Logout</button>
+  </mat-dialog-actions>
+</div>

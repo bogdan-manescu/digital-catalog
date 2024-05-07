@@ -1,0 +1,33 @@
+.overlay {
+  &-success {
+    background-color: var(--primary);
+  }
+
+  &-error {
+    background-color: var(--error);
+  }
+
+  position: absolute;
+  z-index: 2;
+  left: 0;
+}
+
+.overlay-inner {
+  border-radius: 8px;
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  animation: vanish 0.25s ease-in-out 2.5s forwards;
+}
+
+.overlay-title {
+  color: white;
+  margin: 0;
+}
+
+@keyframes vanish {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
