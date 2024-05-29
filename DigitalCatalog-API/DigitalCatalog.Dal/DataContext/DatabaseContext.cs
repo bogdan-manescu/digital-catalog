@@ -30,5 +30,6 @@ namespace DigitalCatalog.Dal.DataContext
         public DbSet<Document> Documents => Set<Document>();
         public DbSet<DocumentType> DocumentTypes => Set<DocumentType>();
         public DbSet<Article> Articles => Set<Article>();
+        public DbSet<Comment> Comments => Set<Comment>();
     }
 }

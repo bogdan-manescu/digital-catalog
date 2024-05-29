@@ -9,13 +9,25 @@
         <mat-icon>person</mat-icon>
         My Profile
       </a>
-      <a routerLink="./academic-record" mat-raised-button color="primary">
-        <mat-icon> notes</mat-icon>
+      <a routerLink="./academic-record" mat-raised-button color="primary" *ngIf="userData.roleId === roles.STUDENT">
+        <mat-icon>notes</mat-icon>
         Academic Record
       </a>
-      <a routerLink="./document-request" mat-raised-button color="primary">
+      <a routerLink="./classroom-editor" mat-raised-button color="primary" *ngIf="userData.roleId === roles.TEACHER">
+        <mat-icon>edit</mat-icon>
+        Classroom Editor
+      </a>
+      <a routerLink="./user-management" mat-raised-button color="primary" *ngIf="userData.roleId === roles.ADMIN">
+        <mat-icon>edit</mat-icon>
+        User Management
+      </a>
+      <a routerLink="./document-request" mat-raised-button color="primary" *ngIf="userData.roleId === roles.STUDENT">
         <mat-icon>insert_drive_file</mat-icon>
         Document Request
+      </a>
+      <a routerLink="./document-approval" mat-raised-button color="primary" *ngIf="userData.roleId === roles.SECRETARY">
+        <mat-icon>insert_drive_file</mat-icon>
+        Document Approval
       </a>
       <a routerLink="./latest-news" mat-raised-button color="primary">
         <mat-icon>event_available</mat-icon>

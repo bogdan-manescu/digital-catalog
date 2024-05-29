@@ -10,6 +10,9 @@ import { DocumentRequestComponent } from "./document-request/document-request.co
 import { UpcomingEventsComponent } from "./upcoming-events/upcoming-events.component";
 import { ForumComponent } from "./forum/forum.component";
 import { DashboardOverviewComponent } from "./dashboard/dashboard-overview/dashboard-overview.component";
+import { UserManagementComponent } from "./user-management/user-management.component";
+import { ClassroomEditorComponent } from "./classroom-editor/classroom-editor.component";
+import { DocumentApprovalComponent } from "./document-approval/document-approval.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -24,6 +27,9 @@ const routes: Routes = [
       { path: "academic-record", component: AcademicRecordComponent, canActivate: [AuthGuard] },
       { path: "document-request", component: DocumentRequestComponent, canActivate: [AuthGuard] },
       { path: "latest-news", component: UpcomingEventsComponent, canActivate: [AuthGuard] },
+      { path: "user-management", component: UserManagementComponent, canActivate: [AuthGuard] },
+      { path: "classroom-editor", component: ClassroomEditorComponent, canActivate: [AuthGuard] },
+      { path: "document-approval", component: DocumentApprovalComponent, canActivate: [AuthGuard] },
       { path: "forum", component: ForumComponent, canActivate: [AuthGuard] },
     ],
   },

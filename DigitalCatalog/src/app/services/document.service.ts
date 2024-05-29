@@ -14,7 +14,7 @@ export class DocumentService {
   constructor(private http: HttpClient) {}
 
   createDocumentRequest(doc: DocumentRequest): Observable<AuthResponseData> {
-    return this.http.put<AuthResponseData>(`${this.baseUrl}/create-document-request`, doc);
+    return this.http.post<AuthResponseData>(`${this.baseUrl}/create-document-request`, doc);
   }
 
   getAllDocumentRequestsByUserId(userId: number): Observable<AuthResponseData> {
@@ -23,5 +23,13 @@ export class DocumentService {
 
   getDocumentTypes(): Observable<AuthResponseData> {
     return this.http.get<AuthResponseData>(`${this.baseUrl}/get-document-types`);
+  }
+
+  setDocumentRequestStatus(documentId: number, secretaryId: number, isDeclined: boolean): Observable<AuthResponseData> {
+    return this.http.get<AuthResponseData>(`${this.baseUrl}/set-document-request-status/${documentId}/${secretaryId}/${isDeclined}`);
+  }
+
+  getAllDocumentRequestsByStudyYear(year: number): Observable<AuthResponseData> {
+    return this.http.get<AuthResponseData>(`${this.baseUrl}/get-all-document-requests-by-study-year/${year}`);
   }
 }

@@ -8,8 +8,10 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using Document = DigitalCatalog.Domain.Models.Document;
 
 namespace DigitalCatalog.Application.Services
 {
@@ -52,6 +54,26 @@ namespace DigitalCatalog.Application.Services
             var docTypes = await _documentRepository.GetDocumentTypes();
 
             response.Data = _mapper.Map<IEnumerable<GetDocumentTypeDto>>(docTypes);
+
+            return response;
+        }
+
+        public async Task<ServiceResponse<IEnumerable<GetDocumentDto>>> SetDocumentRequestStatus(int documentId, int secretaryId, bool isDeclined)
+        {
+            var response = new ServiceResponse<IEnumerable<GetDocumentDto>>();
+            var docs = await _documentRepository.SetDocumentRequestStatus(documentId, secretaryId, isDeclined);
+
+            response.Data = _mapper.Map<IEnumerable<GetDocumentDto>>(docs);
+
+            return response;
+        }
+
+        public async Task<ServiceResponse<IEnumerable<GetDocumentDto>>> GetAllDocumentRequestsByStudyYear(int year)
+        {
+            var response = new ServiceResponse<IEnumerable<GetDocumentDto>>();
+            var docs = await _documentRepository.GetAllDocumentRequestsByStudyYear(year);
+
+            response.Data = _mapper.Map<IEnumerable<GetDocumentDto>>(docs);
 
             return response;
         }

@@ -30,6 +30,9 @@ import { LoaderComponent } from "./loader/loader.component";
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatSelectModule } from "@angular/material/select";
+import { UserManagementComponent } from "./user-management/user-management.component";
+import { ClassroomEditorComponent } from "./classroom-editor/classroom-editor.component";
+import { DocumentApprovalComponent } from './document-approval/document-approval.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { MatSelectModule } from "@angular/material/select";
     DashboardOverviewComponent,
     OverlayComponent,
     LoaderComponent,
+    UserManagementComponent,
+    ClassroomEditorComponent,
+    DocumentApprovalComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,5 +13,7 @@ namespace DigitalCatalog.Application.Interfaces
         Task<ServiceResponse<IEnumerable<GetDocumentDto>>> CreateDocumentRequest(CreateDocumentDto document);
         Task<ServiceResponse<IEnumerable<GetDocumentDto>>> GetAllDocumentRequestsByUserId(int userId);
         Task<ServiceResponse<IEnumerable<GetDocumentTypeDto>>> GetDocumentTypes();
+        Task<ServiceResponse<IEnumerable<GetDocumentDto>>> SetDocumentRequestStatus(int documentId, int secretaryId, bool isDeclined);
+        Task<ServiceResponse<IEnumerable<GetDocumentDto>>> GetAllDocumentRequestsByStudyYear(int year);
     }
 }

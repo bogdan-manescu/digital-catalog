@@ -6,8 +6,10 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using Document = DigitalCatalog.Domain.Models.Document;
 
 namespace DigitalCatalog.Dal.Repository
 {
@@ -15,11 +17,13 @@ namespace DigitalCatalog.Dal.Repository
     {
         private readonly DatabaseContext _context;
         private readonly IConfiguration _configuration;
+        private readonly IUserRepository _userRepository;
 
-        public DocumentRepository(DatabaseContext context, IConfiguration configuration)
+        public DocumentRepository(DatabaseContext context, IConfiguration configuration, IUserRepository userRepository)
         {
             _context = context;
             _configuration = configuration;
+            _userRepository = userRepository;
         }
 
         public async Task<IEnumerable<Document>> CreateDocumentRequest(Document document)
@@ -52,6 +56,45 @@ namespace DigitalCatalog.Dal.Repository
         public async Task<IEnumerable<DocumentType>> GetDocumentTypes()
         {
             return await _context.DocumentTypes.ToListAsync();
+        }
+
+        public async Task<Document> GetDocumentById(int documentId)
+        {
+            return await _context.Documents
+                .Include(d => d.User)
+                .Include(d => d.DocumentType)
+                .FirstOrDefaultAsync(d => d.Id == documentId) ??
+                throw new KeyNotFoundException("Document not found.");
+        }
+
+        public async Task<IEnumerable<Document>> GetAllDocumentRequestsByStudyYear(int year)
+        {
+            return await _context.Documents
+                .Where(d => d.User.Year == year)
+                .OrderByDescending(d => d.StartDate)
+                .Include(d => d.User)
+                .Include(d => d.DocumentType)
+                .ToListAsync() ??
+                throw new KeyNotFoundException("User not found.");
+        }
+
+        public async Task<IEnumerable<Document>> SetDocumentRequestStatus(int documentId, int secretaryId, bool isDeclined)
+        {
+            var document = await GetDocumentById(documentId);
+            var secretary = await _userRepository.GetUserById(secretaryId);
+
+            if (document == null) throw new ArgumentNullException("No document was provided.");
+            if (secretary == null) throw new ArgumentNullException("No secretary found.");
+
+            document.isPending = false;
+            document.isDeclined = isDeclined;
+            document.EndDate = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+
+            var allDocs = await GetAllDocumentRequestsByStudyYear(secretary.Year);
+
+            return allDocs;
         }
     }
 }

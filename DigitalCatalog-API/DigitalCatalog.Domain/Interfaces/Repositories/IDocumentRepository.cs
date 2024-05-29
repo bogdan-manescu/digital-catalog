@@ -12,5 +12,7 @@ namespace DigitalCatalog.Domain.Interfaces.Repositories
         Task<IEnumerable<Document>> CreateDocumentRequest(Document document);
         Task<IEnumerable<Document>> GetAllDocumentRequestsByUserId(int userId);
         Task<IEnumerable<DocumentType>> GetDocumentTypes();
+        Task<IEnumerable<Document>> GetAllDocumentRequestsByStudyYear(int year);
+        Task<IEnumerable<Document>> SetDocumentRequestStatus(int documentId, int secretaryId, bool status);
     }
 }

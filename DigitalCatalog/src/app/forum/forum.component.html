@@ -1,1 +1,71 @@
-<p>forum works!</p>
+<div class="forum-wrapper" data-aos="fade-up" *ngIf="!isLoading">
+  <mat-card class="padding wide" id="scrollContainer">
+    <mat-card-title>
+      <h1>Forum</h1>
+    </mat-card-title>
+    <mat-card-content *ngIf="comments.length >= 0">
+      <div class="center-column no-align wide">
+        <div *ngFor=" let comment of comments">
+          <div class="center comment-row-wrapper" *ngIf="comment.userId !== userData.id">
+            <mat-card class="comment-wrapper">
+              <mat-card-content class="comment center no-align">
+                <img [src]="comment.user.profilePicture">
+                <div class="center-column no-align" style="flex: 1;">
+                  <div class="center no-align sub">
+                    <span>{{ comment.user.firstName }} {{ comment.user.lastName }} | </span>
+                    <span>{{ comment.user.role.name }} | </span>
+                    <span>{{ comment.user.faculty.name }}</span>
+                  </div>
+                  <div class="center-column no-align">
+                    <span>{{ comment.message }}</span>
+                    <span class="sub">{{ getCommentDate(comment.postedAt) }}</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="center comment-row-wrapper-my" *ngIf="comment.userId === userData.id">
+            <mat-card class="comment-wrapper">
+              <mat-card-content class="comment comment-my center no-align">
+                <img [src]="comment.user.profilePicture">
+                <div class="center-column no-align" style="flex: 1;">
+                  <div class="center no-align sub">
+                    <span>{{ comment.user.firstName }} {{ comment.user.lastName }} | </span>
+                    <span>{{ comment.user.role.name }} | </span>
+                    <span>{{ comment.user.faculty.name }}</span>
+                  </div>
+                  <div class="center-column no-align">
+                    <span>{{ comment.message }}</span>
+                    <span class="sub">{{ getCommentDate(comment.postedAt) }}</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content *ngIf="comments.length === 0">
+      <h2>Looks like there are no comments yet.</h2>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="forum-input" *ngIf="!isLoading">
+  <div class="forum-input-inner">
+    <form [formGroup]="commentForm">
+      <mat-form-field appearance="outline" class="wide">
+        <!-- <mat-label>Username</mat-label> -->
+        <input formControlName="message" placeholder="Type your message here..." matInput
+          (keyup.enter)="onCreateComment()" [disabled]="isCommentDisabled" [readonly]="isCommentDisabled">
+        <mat-icon matSuffix *ngIf="!isCommentDisabled">send</mat-icon>
+        <mat-icon class="rotating" matSuffix *ngIf="isCommentDisabled">rotate_right</mat-icon>
+        <!-- <mat-error *ngIf="loginCredentialsForm.controls['username'].hasError('required')">This field cannot be
+            empty</mat-error> -->
+      </mat-form-field>
+      <!-- <button mat-flat-button color="primary" (click)="onSaveLoginCredentials()" type="submit" [disabled]="isLoading">
+            {{ isLoading ? "LOADING..." : "SAVE" }}
+          </button> -->
+    </form>
+  </div>
+</div>
+<app-loader *ngIf="isLoading"></app-loader>

@@ -1,4 +1,7 @@
-﻿using DigitalCatalog.Domain.Models;
+﻿using DigitalCatalog.Application.Dtos.Faculty;
+using DigitalCatalog.Application.Dtos.Group;
+using DigitalCatalog.Application.Dtos.Role;
+using DigitalCatalog.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +20,10 @@ namespace DigitalCatalog.Application.Dtos.User
         public string PhoneNumber { get; set; }
         public int Year { get; set; }
         public int RoleId { get; set; }
-        public Role Role { get; set; }
+        public GetRoleDto Role { get; set; }
         public int FacultyId { get; set; }
-        public Faculty Faculty { get; set; }
+        public GetFacultyDto Faculty { get; set; }
         public int? GroupId { get; set; }
-        public Group? Group { get; set; }
+        public GetGroupDto? Group { get; set; }
     }
 }

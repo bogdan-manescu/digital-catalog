@@ -17,7 +17,7 @@ namespace DigitalCatalog.Api.Controllers
             _documentService = documentService;
         }
 
-        [HttpPut("create-document-request")]
+        [HttpPost("create-document-request")]
         public async Task<ActionResult<ServiceResponse<IEnumerable<GetDocumentDto>>>> CreateDocumentRequest(CreateDocumentDto document)
         {
             var response = await _documentService.CreateDocumentRequest(document);
@@ -47,6 +47,32 @@ namespace DigitalCatalog.Api.Controllers
         public async Task<ActionResult<ServiceResponse<IEnumerable<GetDocumentTypeDto>>>> GetDocumentTypes()
         {
             var response = await _documentService.GetDocumentTypes();
+
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet("set-document-request-status/{documentId}/{secretaryId}/{isDeclined}")]
+        public async Task<ActionResult<ServiceResponse<IEnumerable<GetDocumentDto>>>> SetDocumentRequestStatus(int documentId, int secretaryId, bool isDeclined)
+        {
+            var response = await _documentService.SetDocumentRequestStatus(documentId, secretaryId, isDeclined);
+
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet("get-all-document-requests-by-study-year/{year}")]
+        public async Task<ActionResult<ServiceResponse<IEnumerable<GetDocumentDto>>>> GetAllDocumentRequestsByStudyYear(int year)
+        {
+            var response = await _documentService.GetAllDocumentRequestsByStudyYear(year);
 
             if (!response.Success)
             {

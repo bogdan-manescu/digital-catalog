@@ -1,0 +1,138 @@
+<div class="center-column" data-aos="fade-up">
+  <mat-card class="padding wide">
+    <form [formGroup]="addUserForm">
+      <mat-card-title>
+        <h1>Add User</h1>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="center no-align">
+          <div style="flex: 1;">
+            <div style="display: flex; gap: 10px;">
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>First name</mat-label>
+                <input formControlName="firstName" placeholder="Enter your first name" matInput required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="addUserForm.controls['firstName'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Last name</mat-label>
+                <input formControlName="lastName" placeholder="Enter your last name" matInput required>
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="addUserForm.controls['lastName'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>E-mail</mat-label>
+              <input formControlName="email" placeholder="Enter your e-mail" type="email" matInput required>
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="addUserForm.controls['email'].hasError('required')">This field cannot be
+                empty</mat-error>
+              <mat-error *ngIf="addUserForm.controls['email'].hasError('email')">Not a valid e-mail
+                address</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>Phone number</mat-label>
+              <input formControlName="phoneNumber" placeholder="Enter your phone number" type="tel" matInput required>
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="addUserForm.controls['phoneNumber'].hasError('required')">This field cannot be
+                empty</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field appearance="outline" class="wide">
+              <mat-label>Faculty</mat-label>
+              <input formControlName="faculty" placeholder="Enter your faculty" matInput required>
+              <mat-icon matSuffix>location_city</mat-icon>
+              <mat-error *ngIf="addUserForm.controls['faculty'].hasError('required')">This field cannot be
+                empty</mat-error>
+            </mat-form-field> -->
+            <mat-form-field appearance="outline" class="wide">
+              <mat-label>Faculty</mat-label>
+              <mat-select formControlName="facultyId" required>
+                <mat-option *ngFor="let faculty of faculties" [value]="faculty.id">{{ faculty.name }}</mat-option>
+              </mat-select>
+              <mat-icon matSuffix>view_headline</mat-icon>
+              <mat-error *ngIf="addUserForm.controls['facultyId'].hasError('required')">This field cannot be
+                empty</mat-error>
+            </mat-form-field>
+            <div style="display: flex; gap: 10px;">
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Year</mat-label>
+                <input formControlName="year" placeholder="Enter your study year" matInput required>
+                <mat-icon matSuffix>assignment</mat-icon>
+                <mat-error *ngIf="addUserForm.controls['year'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+              <!-- <mat-form-field appearance="outline" class="wide">
+                <mat-label>Group</mat-label>
+                <input formControlName="group" placeholder="Enter your group" matInput required>
+                <mat-icon matSuffix>people</mat-icon>
+                <mat-error *ngIf="addUserForm.controls['group'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field> -->
+              <mat-form-field appearance="outline" class="wide">
+                <mat-label>Group</mat-label>
+                <mat-select formControlName="groupId" required>
+                  <mat-option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>view_headline</mat-icon>
+                <mat-error *ngIf="addUserForm.controls['groupId'].hasError('required')">This field cannot be
+                  empty</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <mat-form-field appearance="outline" class="wide">
+            <mat-label>Username</mat-label>
+            <input formControlName="username" placeholder="Enter your username" matInput required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="addUserForm.controls['username'].hasError('required')">This field cannot be
+              empty</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="wide">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" placeholder="Enter your password" type="password" matInput required>
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error *ngIf="addUserForm.controls['password'].hasError('required')">This field cannot be
+              empty</mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline" class="wide">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="roleId" required>
+            <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>view_headline</mat-icon>
+          <mat-error *ngIf="addUserForm.controls['roleId'].hasError('required')">This field cannot be
+            empty</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="onAddUser()" type="submit" [disabled]="isLoading">
+          {{ isLoading ? "LOADING..." : "ADD USER" }}
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <mat-card class="padding wide">
+    <mat-card-title>
+      <h1>All Users</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="center-column no-align wide">
+        <mat-card *ngFor="let user of users">
+          <mat-card-content>
+            <p>Full name: {{ user.firstName }} {{ user.lastName }}</p>
+            <p>Role: {{ user.role.name }}</p>
+            <p>E-mail: {{ user.email }}</p>
+            <p>Phone number: {{ user.phoneNumber }}</p>
+            <p>Faculty: {{ user.faculty.name }}</p>
+            <p>Group: {{ user.group.name }}</p>
+            <p>Year: {{ user.year }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

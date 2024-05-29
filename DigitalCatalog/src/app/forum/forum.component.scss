@@ -1,0 +1,107 @@
+.forum-wrapper {
+  position: relative;
+
+  & > mat-card {
+    overflow-y: overlay;
+    max-height: calc(100vh - 110px);
+    scroll-behavior: smooth;
+  }
+}
+
+.forum-input {
+  // position: sticky;
+  // bottom: -22px;
+  padding-top: 10px;
+  // padding-bottom: 0;
+
+  &-inner {
+    // background-color: rgb(235, 235, 235);
+    // border-radius: 8px;
+    // border: 2px solid black;
+  }
+
+  // border-radius: 25px;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.comment {
+  gap: 10px !important;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 25px;
+
+  &-wrapper {
+    max-width: 45%;
+    box-shadow: none;
+  }
+
+  &-row-wrapper {
+    justify-content: flex-start;
+
+    &-my {
+      justify-content: flex-end;
+    }
+  }
+
+  &-my {
+    background-color: var(--primary);
+    // justify-content: flex-end;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 0;
+  }
+
+  img {
+    height: 24px;
+    width: 24px;
+  }
+
+  .sub {
+    color: lightgray;
+    font-size: 12px;
+  }
+}
+
+.center,
+.center-column {
+  gap: 5px;
+}

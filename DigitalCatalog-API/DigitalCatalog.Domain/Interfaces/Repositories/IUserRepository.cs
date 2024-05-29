@@ -11,5 +11,10 @@ namespace DigitalCatalog.Domain.Interfaces.Repositories
     {
         Task<User> GetUserByUsername(string username);
         Task<User> GetUserById(int id);
+        Task<IEnumerable<User>> AddUser(User user);
+        Task<IEnumerable<User>> GetAllUsers();
+        Task<IEnumerable<Faculty>> GetAllFaculties();
+        Task<IEnumerable<Group>> GetAllGroups();
+        Task<IEnumerable<Role>> GetAllRoles();
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,6 +41,44 @@ namespace DigitalCatalog.Dal.Repository
                 .Include(u => u.Group)
                 .FirstOrDefaultAsync(u => u.Id == id) ??
                 throw new KeyNotFoundException("User not found.");
+        }
+
+        public async Task<IEnumerable<User>> AddUser(User user)
+        {
+            if (user == null) throw new ArgumentNullException("No user was provided.");
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            var users = await GetAllUsers();
+
+            return users;
+        }
+
+        public async Task<IEnumerable<User>> GetAllUsers()
+        {
+            return await _context.Users
+                .OrderByDescending(u => u.Id)
+                .Include(u => u.Role)
+                .Include(u => u.Faculty)
+                .Include(u => u.Group)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Faculty>> GetAllFaculties()
+        {
+            return await _context.Faculties.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Group>> GetAllGroups()
+        {
+            return await _context.Groups.ToListAsync();
+
+        }
+
+        public async Task<IEnumerable<Role>> GetAllRoles()
+        {
+            return await _context.Roles.ToListAsync();
         }
     }
 }
